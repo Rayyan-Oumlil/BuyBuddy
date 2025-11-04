@@ -312,30 +312,41 @@ curl -X POST ... -d '{"message": "je n'aime pas", "session_id": "xxx"}'
 
 ---
 
-### ✅ Milestone 10 : SQLite + Historique (2h)
+### ✅ Milestone 10 : SQLite + Historique (2h) ✅ **TERMINÉ**
 
 **Objectif :** Sauvegarder conversations et produits en SQLite
 
 **Résultat attendu :**
 
-- Conversations sauvegardées
-- Historique accessible
-- Cache produits
+- ✅ Conversations sauvegardées
+- ✅ Historique accessible via API
+- ✅ Cache produits
 
 **Validation :**
 
-- Relancer recherche → retrouve historique
-- Voir DB avec DB Browser
+- ✅ Relancer recherche → retrouve historique
+- ✅ Voir DB avec DB Browser (data/buybuddy.db)
+- ✅ Endpoints `/api/v1/history/conversations` et `/api/v1/history/searches`
 
-**Fichiers à créer :**
+**Fichiers créés :**
 
-- `backend/app/core/database.py` (SQLite)
-- `backend/app/infrastructure/repositories/sqlite_repository.py`
+- ✅ `backend/app/core/database.py` (SQLite setup et tables)
+- ✅ `backend/app/infrastructure/repositories/sqlite_repository.py` (Repository pattern)
+- ✅ `backend/app/api/v1/endpoints/history.py` (Endpoints historique)
+- ✅ `backend/app/core/config.py` (ajout database_dir)
+
+**Intégration :**
+
+- ✅ `ShoppingWorkflow` sauvegarde automatiquement conversations, recherches et produits
+- ✅ Tables créées : `conversations`, `products`, `searches`
+- ✅ Indexes pour performance
+- ✅ Repository pattern pour abstraction
 
 **Amélioration visible :**
 
-- Historique persiste
-- Pas de perte de données
+- ✅ Historique persiste après redémarrage
+- ✅ Pas de perte de données
+- ✅ Cache produits pour éviter requêtes API redondantes
 
 ---
 

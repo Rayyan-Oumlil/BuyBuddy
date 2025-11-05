@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+
+    --primary: 250 95% 63%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 220 13% 13%;
+
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 250 95% 63%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 9% 46%;
+    --sidebar-primary: 250 95% 63%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 95%;
+    --sidebar-accent-foreground: 220 13% 13%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 250 95% 63%;
+
+    --chat-user: 250 95% 63%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-assistant: 0 0% 98%;
+    --chat-assistant-foreground: 220 13% 13%;
+
+    --product-card: 0 0% 100%;
+    --product-card-hover: 250 95% 98%;
+
+    --price-best: 142 76% 36%;
+    --price-best-bg: 142 76% 95%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250 95% 63%) 0%, hsl(280 90% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(160 70% 40%) 100%);
+    
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 224 71% 6%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 6%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 250 95% 63%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 213 31% 91%;
+
+    --border: 222 47% 11%;
+    --input: 222 47% 11%;
+    --ring: 250 95% 63%;
+
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 215 20% 65%;
+    --sidebar-primary: 250 95% 63%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 11%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 222 47% 11%;
+    --sidebar-ring: 250 95% 63%;
+
+    --chat-user: 250 95% 63%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-assistant: 222 47% 11%;
+    --chat-assistant-foreground: 213 31% 91%;
+
+    --product-card: 224 71% 6%;
+    --product-card-hover: 250 95% 10%;
+
+    --price-best: 142 76% 36%;
+    --price-best-bg: 142 76% 10%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250 95% 63%) 0%, hsl(280 90% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(160 70% 40%) 100%);
+
+    --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.05);
+    --shadow-hover: 0 0 0 1px rgb(255 255 255 / 0.1), 0 10px 15px -3px rgb(0 0 0 / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

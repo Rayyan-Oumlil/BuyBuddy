@@ -1,56 +1,60 @@
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, ShoppingCart } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-function ProductCard({ product }) {
+export const ProductCard = ({
+  name,
+  price,
+  link,
+  platform,
+  image,
+  description,
+}) => {
+  // Format price - handle both number and string
+  const priceValue = typeof price === "number" ? price : parseFloat(String(price).replace(/[€$,\s]/g, "").replace(",", ".")) || 0
+  const formattedPrice = isNaN(priceValue) ? "N/A" : `${priceValue.toFixed(2)}€`
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-      {product.image && (
-        <div className="aspect-video bg-gray-100 overflow-hidden">
+    <div className="group bg-product-card rounded-xl shadow-card hover:shadow-hover transition-all duration-300 overflow-hidden hover:bg-product-card-hover border border-border">
+      <div className="aspect-square bg-muted relative overflow-hidden">
+        {image ? (
           <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover"
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             onError={(e) => {
-              e.target.style.display = 'none'
+              e.target.style.display = "none"
             }}
           />
-        </div>
-      )}
-      <div className="p-4 space-y-2">
-        <h3 className="font-semibold text-gray-900 line-clamp-2 text-sm">
-          {product.name}
-        </h3>
-        {product.description && (
-          <p className="text-xs text-gray-600 line-clamp-2">
-            {product.description}
-          </p>
-        )}
-        <div className="flex items-center justify-between pt-2">
-          <div className="flex items-center gap-2">
-            {product.price && (
-              <span className="text-lg font-bold text-blue-600">
-                {product.price}
-              </span>
-            )}
-            {product.platform && (
-              <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                {product.platform}
-              </span>
-            )}
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <ShoppingCart className="w-16 h-16 text-muted-foreground/30" />
           </div>
-          <a
-            href={product.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+        )}
+        <div className="absolute top-2 right-2 px-2 py-1 bg-background/90 backdrop-blur-sm rounded-md text-xs font-medium dark:text-white dark:bg-[#2a2a2a]/90">
+          {platform}
+        </div>
+      </div>
+      <div className="p-4 space-y-3">
+        <h3 className="font-semibold text-sm line-clamp-2 leading-snug dark:text-white">{name}</h3>
+        {description && (
+          <p className="text-xs text-muted-foreground dark:text-gray-300 line-clamp-2">{description}</p>
+        )}
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            {formattedPrice}
+          </div>
+          <Button
+            size="sm"
+            asChild
+            className="group-hover:scale-105 transition-transform duration-200"
           >
-            Voir
-            <ExternalLink className="w-4 h-4" />
-          </a>
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              Voir
+              <ExternalLink className="w-3 h-3 ml-1" />
+            </a>
+          </Button>
         </div>
       </div>
     </div>
   )
 }
-
-export default ProductCard
-

@@ -142,10 +142,6 @@ curl -X POST "http://localhost:8000/api/v1/search" \
 Invoke-RestMethod -Uri "http://localhost:8000/api/v1/chat" -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"message":"I want a gaming laptop under $1500"}'
 ```
 
-## 📖 Documentation
-
-See `PLAN_ITERATIF.md` for detailed implementation plan and milestones.
-
 ## 🏗️ Architecture
 
 The project follows a clean architecture pattern:
